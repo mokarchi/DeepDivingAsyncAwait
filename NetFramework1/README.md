@@ -7,3 +7,11 @@ Here's a brief overview of how asynchronous programming was done in .NET Framewo
 4. Once all the operations completed, the developer would use the `EndInvoke` method of the `AsyncCallback` delegate to retrieve the results of the operations.
 5. Error handling was done using the `AsyncState` property of the `IAsyncResult` object, which would contain an exception if the operation failed.
 
+
+The `AsyncCallback` and `IAsyncResult` approach to asynchronous programming in .NET Framework 1.0 has several limitations and problems:
+
+# Complexity: The code required to perform asynchronous operations using this approach is much more complex and difficult to read and write than with the modern async and await approach. This complexity makes it more difficult for developers to write correct and maintainable code.
+# Error handling: Error handling with this approach is difficult and error-prone. If an exception occurs during the execution of an asynchronous operation, it is not propagated to the code that initiated the operation, making it difficult to handle and report errors correctly.
+# Scalability: This approach does not scale well to large numbers of asynchronous operations, as each operation requires a separate `IAsyncResult` object and must be managed manually. This can lead to increased memory usage and decreased performance for large numbers of operations.
+# Lack of support for cancellation: There is no built-in support for canceling asynchronous operations using this approach. Developers must implement their own cancellation mechanism, which can be complex and error-prone.
+# Lack of support for progress reporting: This approach does not provide a built-in mechanism for reporting progress of asynchronous operations. Developers must implement their own progress reporting mechanism, which can be complex and error-prone.
